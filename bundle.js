@@ -53,31 +53,23 @@ var Vingador = /*#__PURE__*/function (_Pessoa) {
     value: function lutar() {
       alert("".concat(this.nome, " est\xE1 lutando usando ").concat(this.poderes[0]));
     }
+  }, {
+    key: "hulk",
+    value: function hulk() {
+      alert("Dentre todos os Vingadores, o mais forte \xE9 o ".concat(this.nome, ", que possui ").concat(this.poderes[0], " e \xE9 ").concat(this.poderes[1]));
+    }
   }]);
 
   return Vingador;
 }(Pessoa);
 
 var thor = new Vingador("Thor", "1,85", "100kg", ["Super Força", "Raio"], true, true);
+var hulk = new Vingador("Hulk", "2,60m", "600 kg", ["Super Força", "Indestrutivel"], true, true);
+
+document.getElementById("hulk").onclick = function () {
+  hulk.hulk();
+};
 
 document.getElementById("lutar").onclick = function () {
   thor.lutar();
 };
-
-var operacoesMatematicas = /*#__PURE__*/function () {
-  function operacoesMatematicas() {
-    _classCallCheck(this, operacoesMatematicas);
-  }
-
-  _createClass(operacoesMatematicas, null, [{
-    key: "soma",
-    value: function soma(a, b) {
-      return a + b;
-    }
-  }]);
-
-  return operacoesMatematicas;
-}();
-
-var sum = operacoesMatematicas.soma;
-alert(sum);

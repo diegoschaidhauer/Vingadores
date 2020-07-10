@@ -17,9 +17,14 @@ class Vingador extends Pessoa {
   lutar() {
     alert(`${this.nome} está lutando usando ${this.poderes[0]}`);
   }
+  hulk() {
+    alert(
+      `Dentre todos os Vingadores, o mais forte é o ${this.nome}, que possui ${this.poderes[0]} e é ${this.poderes[1]}`
+    );
+  }
 }
 
-const thor = new Vingador(
+let thor = new Vingador(
   "Thor",
   "1,85",
   "100kg",
@@ -28,15 +33,19 @@ const thor = new Vingador(
   true
 );
 
+const hulk = new Vingador(
+  "Hulk",
+  "2,60m",
+  "600 kg",
+  ["Super Força", "Indestrutivel"],
+  true,
+  true
+);
+
+document.getElementById("hulk").onclick = function () {
+  hulk.hulk();
+};
+
 document.getElementById("lutar").onclick = function () {
   thor.lutar();
 };
-
-class operacoesMatematicas {
-  static soma(a, b) {
-    return a + b;
-  }
-}
-
-const sum = operacoesMatematicas.soma;
-alert(sum);
