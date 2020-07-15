@@ -1,83 +1,28 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+var arr = [1, 2, 3, 4, 5, 6];
+var cesta = ["banana", "maçã", "abacate", "abacaxi"];
+var squareArr = arr.map(function (item) {
+  return item * item;
+});
+var fruitPosition = cesta.map(function (item, index) {
+  return "A/O ".concat(item, " est\xE1 na posi\xE7\xE3o ").concat(index, " do array");
+}); //o map ira utilizar sempre o item, fazendo um loop
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+console.log(squareArr);
+console.log(fruitPosition);
+var sum = arr.reduce(function (total, next) {
+  console.log("total", total);
+  console.log("next", next);
+  return total + next;
+}); //reduce irá recebero valor de cada item e fazer uma equação com o proximo item, n~]ao ira retornar um arrayS
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+var filter = arr.filter(function (item) {
+  return item % 2 === 0;
+});
+console.log(filter); //filter é o metodo que irá buscar os itens dentro do array que sejam true de acordo com o parametro utilizado
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Pessoa = function Pessoa(nome, altura, peso) {
-  _classCallCheck(this, Pessoa);
-
-  this.nome = nome;
-  this.altura = altura;
-  this.peso = peso;
-};
-
-var Vingador = /*#__PURE__*/function (_Pessoa) {
-  _inherits(Vingador, _Pessoa);
-
-  var _super = _createSuper(Vingador);
-
-  function Vingador(nome, altura, peso, poderes, temArmadura, isMembroFundador) {
-    var _this;
-
-    _classCallCheck(this, Vingador);
-
-    _this = _super.call(this, nome, altura, peso);
-    _this.nome = nome;
-    _this.poderes = poderes;
-    _this.temArmadura = temArmadura;
-    _this.isMembroFundador = isMembroFundador;
-    return _this;
-  }
-
-  _createClass(Vingador, [{
-    key: "lutar",
-    value: function lutar() {
-      alert("".concat(this.nome, " est\xE1 lutando usando ").concat(this.poderes[0]));
-    }
-  }]);
-
-  return Vingador;
-}(Pessoa);
-
-var thor = new Vingador("Thor", "1,85", "100kg", ["Super Força", "Raio"], true, true);
-
-document.getElementById("lutar").onclick = function () {
-  thor.lutar();
-};
-
-var operacoesMatematicas = /*#__PURE__*/function () {
-  function operacoesMatematicas() {
-    _classCallCheck(this, operacoesMatematicas);
-  }
-
-  _createClass(operacoesMatematicas, null, [{
-    key: "soma",
-    value: function soma(a, b) {
-      return a + b;
-    }
-  }]);
-
-  return operacoesMatematicas;
-}();
-
-var sum = operacoesMatematicas.soma;
-alert(sum);
+var find = arr.find(function (item) {
+  return item === 4;
+});
+console.log(find); //o metodo find, ira procura dentro do array pelo item informado e apresenta-lo, caso nao encontre retornará undefined
